@@ -1,6 +1,6 @@
 # miku.gg - Site Tweaks
 
-** Features
+## Features
 
 - Can clean a bit of clutter from the novel layout including the faded border around the edges.
 - Allows increasing the height of the way too short input and memory boxes in novels.
@@ -8,6 +8,6 @@
 - It can expand novels to take up the full page instead of the tiny portion they default into.
 - A configuration menu where all of these options can be adjusted to your liking.
 
-** Installing
+## Installing
 To use this userstyle you will need the Stylus browser extention.
 You can find into on how to install it here [https://github.com/openstyles/stylus]
