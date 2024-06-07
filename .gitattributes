@@ -1,3 +1,7 @@
+.gitattributes export-ignore
+README.md export-ignore
+novel[[:space:]]fullscreen.webp
+
 *.png binary
 *.jpg binary
 *.webp binary
