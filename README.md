@@ -1,5 +1,7 @@
 # miku.gg - Site Tweaks
 
+#+HTML: <img src="https://github.com/MisspeledName/miku.gg-Site-Tweaks/raw/main/novel%20fullscreen.webp" width="100%"/>
+
 ## Features
 
 - Can clean a bit of clutter from the novel layout including the faded border around the edges.
@@ -10,4 +12,4 @@
 
 ## Installing
 To use this userstyle you will need the Stylus browser extention.
-You can find into on how to install it here [https://github.com/openstyles/stylus]
+You can find into on how to install it here. https://github.com/openstyles/stylus
