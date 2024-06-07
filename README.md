@@ -1,7 +1,7 @@
 # miku.gg - Site Tweaks
 This userstyle makes some quality of life improvements to the [miku.gg](https://miku.gg/) site.
 
-#+HTML: <img src="https://github.com/MisspeledName/miku.gg-Site-Tweaks/raw/main/novel%20fullscreen.webp" width="100%"/>
+<img src="https://github.com/MisspeledName/miku.gg-Site-Tweaks/raw/main/novel%20fullscreen.webp" width="100%"/>
 
 ## Features
 - Can clean a bit of clutter from the novel layout including the faded border around the edges.
@@ -13,4 +13,14 @@ This userstyle makes some quality of life improvements to the [miku.gg](https://
 ## Installing
 You'll need a userstyle manager that supports the stylus preprocessor such as the Stylus browser extension.
 
-You can find into on how to install Stylus here. https://github.com/openstyles/stylus
+You can find into on how to install Stylus here.
+<br>https://github.com/openstyles/stylus
+
+From there I recommend installing the userstyle from my userstyles.world page.
+<br>https://userstyles.world/style/16673/miku-gg-site-tweaks
+
+## Notes
+Most of the features default to disabled so be sure to take a look at the configure menu and enable the ones you prefer.
+
+Sometimes turning off the override chatbox settings feature makes the width of part of the chatbox temporarily bug out.
+<br>Reloading the page or using the site's move tool on the chatbox fixes it.
