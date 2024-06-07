@@ -1,0 +1,155 @@
+/* ==UserStyle==
+@name           miku.gg - Site Tweaks
+@namespace      Misspeled Name (https://userstyles.world/user/misspeled-name)
+@version        1.0.0
+@description    Some improvements to miku.gg
+@author         Misspeled Name (https://userstyles.world/user/misspeled-name)
+@homepageURL    https://userstyles.world/user/misspeled-name
+@supportURL     https://github.com/MisspeledName/miku.gg-Site-Tweaks/issues
+@license        MIT
+@preprocessor stylus
+@advanced checkbox -clean "Cleaner looking novels" 1
+@advanced checkbox -fullscreen "Expand novels to whole page" 0
+@advanced range -memory-height "Memory box height" [12,1,30,0.2,"em"]
+@advanced checkbox -chatbox-override "Override chatbox settings (enables settings below)" 0
+@advanced range -chatbox-width "Chatbox width" [75,30,100,1,"vw"]
+@advanced range -chatbox-response-height "Chatbox response height" [12,1,30,0.2,"em"]
+@advanced range -chatbox-input-height "Chatbox input height" [8,0,30,0.2,"em"]
+@advanced range -chatbox-offset-y "Chatbox offset from bottom" [1,0,10,0.2,"vh"]
+@advanced range -chatbox-padding-sides "Chatbox side padding" [1,0,3,0.1,"em"]
+@advanced range -chatbox-padding-vertical "Chatbox top/bottom padding" [0.5,0,3,0.1,"em"]
+==/UserStyle== */
+/* calculate more subtle padding adjustments between the chatbox sections */
+-chatbox-padding-separator = max((-chatbox-padding-vertical / 2),0.5em)
+@-moz-document domain("alpha.miku.gg"), domain("interactor.miku.gg") {
+  /* fix some questionable site layout decisions */
+  if -chatbox-override {
+    /* div that contains both response and input 
+       input box is offset below this and response box fills it */
+    .ChatBox__Rnd
+    /* sometimes site omits the former div */
+    , .ChatBox:not(:has(.ChatBox__Rnd)) {
+      position: fixed !important;
+      width: -chatbox-width !important;
+      height: -chatbox-response-height !important;
+      top: auto !important;
+      /* calculate for the space the input box below takes */
+      bottom: "calc(%s + %s)" % (-chatbox-input-height -chatbox-offset-y) !important;
+      right: auto !important;
+      /* calculate x offset to center chatbox */
+      left: "calc((100vw - %s) / 2)" % (-chatbox-width) !important;
+      transform: translate(0,0) !important;
+    }
+    /* response box 
+       the other box (input) is below the parent div so 100% height this */
+    .ResponseBox {
+      height: 100% !important;
+    }
+    /* this is inside the former div */
+    .ResponseBox__text {
+      padding: -chatbox-padding-vertical -chatbox-padding-sides -chatbox-padding-separator -chatbox-padding-sides !important;
+    }
+    /* chatbox height
+       adjust height with .InputBox because .InputBox__form has padding which makes calculating stuff harder */
+    .InputBox {
+      /* when .ChatBox__Rnd is omitted the site moves this within the parent */
+      position: absolute !important;
+      bottom: auto !important;
+      top: -chatbox-response-height !important;
+      height: -chatbox-input-height !important;
+    }
+    /* this is inside the former div */
+    .InputBox__form {
+      height: 100% !important;
+      padding: -chatbox-padding-separator -chatbox-padding-sides -chatbox-padding-vertical -chatbox-padding-sides !important;
+    }
+    /* chatbox move button
+       the site's resizing and moving feature misbehaves when certain settings are overwritten */
+    .ResponseBox__move {
+      display: none !important;
+    }
+    /* lock these at 100% width because the width is sometimes buggy */
+    .ResponseBox
+    , .InputBox
+    , .InputBox__form {
+      width: 100% !important;
+    }
+    /* make sure min-max stuff doesn't get in the way */
+    .ChatBox__Rnd
+    , .ChatBox
+    , .ResponseBox
+    , .InputBox
+    , .InputBox__form {
+      min-width: 0 !important;
+      max-width: 100vw !important;
+      min-height: 0 !important;
+      max-height: 100vh !important;
+    }
+  }
+  /* memory area height */
+  .Input__textArea {
+    height: -memory-height !important;
+  }
+  if -clean {
+    /* remove faded novel border */
+    .Interactor
+    , .Interactor__background-image
+    , .Interactor__main-image-container {
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    .App {
+      padding: 0 !important;
+    }
+    /* uncomment this to hide the scene suggestion prompt */
+    /* .SceneSuggestion {
+       display:none !important;
+    } */
+    /* remove some disabled premium only things
+       these should automatically stop applying if the feature is available */
+    /* voice button */
+    .ResponseBox__voice--disabled
+    /* brain button */
+    , .ModelSelector--disabled
+    /* the teddy bear in the inventory */
+    , .Inventory__item.disabled {
+      display:none !important;
+    }
+  }
+}
+
+@-moz-document url-prefix("http://miku.gg/narration/"), url-prefix("https://miku.gg/narration/") {
+  if -fullscreen {
+    /* the novel */
+    iframe[src^="https://interactor.miku.gg/"] {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      min-width: 0 !important;
+      max-width: 100vw !important;
+      min-height: 0 !important;
+      max-height: 100vh !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 999999 !important;
+    }
+    /* remove redundant page elements to ensure the user doesn't accidentally tab focus elsewhere and post a review or something */
+    /* left side bar */
+    .navbar
+    /* bar at top of page with adult content warning */
+    , .Disclaimer
+    /* comments section */
+    , .ChatPage__description
+    /* small bar at bottom of page */
+    , .footer {
+      display: none !important;
+    }
+  }
+}
+
+@-moz-document domain("miku.gg") {
+  /* this is a placeholder so the style always appears in the userstyle menu while browsing the site */
+  body.nope > body.not-here {
+    margin: 0 !important;
+  }
+}
