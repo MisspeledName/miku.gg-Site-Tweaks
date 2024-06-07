@@ -13,7 +13,7 @@ This userstyle makes some quality of life improvements to the [miku.gg](https://
 ## Installing
 You'll need a userstyle manager that supports the stylus preprocessor such as the Stylus browser extension.
 
-You can find into on how to install Stylus here.
+You can find info on how to install Stylus here.
 <br>https://github.com/openstyles/stylus
 
 From there I recommend installing the userstyle from my userstyles.world page.
