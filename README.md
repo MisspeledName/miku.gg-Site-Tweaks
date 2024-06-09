@@ -1,3 +1,6 @@
+This repository has been moved to https://gitlab.com/MisspeledName/miku.gg-site-tweaks
+<br>The version here will no longer be updated.
+
 # miku.gg - Site Tweaks
 This userstyle makes some quality of life improvements to the [miku.gg](https://miku.gg/) site.
 
