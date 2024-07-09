@@ -4,7 +4,7 @@ This repository has been moved to https://gitlab.com/MisspeledName/miku.gg-site-
 # miku.gg - Site Tweaks
 This userstyle makes some quality of life improvements to the [miku.gg](https://miku.gg/) site.
 
-<img src="https://github.com/MisspeledName/miku.gg-Site-Tweaks/raw/main/novel%20fullscreen.webp" width="100%"/>
+<img src="novel%20fullscreen.webp"/>
 
 ## Features
 - Can clean a bit of clutter from the novel layout including the faded border around the edges.
